@@ -15,7 +15,7 @@ const projectDir = path.resolve(fs.realpathSync(process.cwd()));
 const paths = require(scriptVersion + '/config/paths');
 
 module.exports = Object.assign({
-  scriptVersion: scriptVersion,
+  scriptVersion: path.join(require.resolve(scriptVersion), '..', '..'),
   configOverrides: projectDir + '/config-overrides',
   customScriptsIndex: (custom_scripts ? cs_index : -1)
 }, paths);
